@@ -14,4 +14,4 @@ data_911['month'] = [x.month for x in data_911['Event Clearance Date']]
 data_911['day'] = [x.day for x in data_911['Event Clearance Date']]
 data_911['weekday'] = [x.weekday() for x in data_911['Event Clearance Date']]
 
-data_911.to_csv('~/Documents/seattle_data/911_with_hour_month.csv')
+data_911.to_csv('~/Documents/seattle_data/911_with_hour_month.csv', index=False)

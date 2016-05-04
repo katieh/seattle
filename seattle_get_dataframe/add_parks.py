@@ -19,7 +19,7 @@ for i in range(data_911.shape[0]):
 print park
 data_911['park'] = pd.Series(park)
 
-data_911.to_csv('~/Documents/seattle_data/911_w_parks.csv')
+data_911.to_csv('~/Documents/seattle_data/911_w_parks.csv', index=False)
 
 
 

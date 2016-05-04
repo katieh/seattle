@@ -151,4 +151,4 @@ data_911['skate_parks'] = pd.Series(skate)
 data_911['track_and_fields'] = pd.Series(track)
 data_911['trails'] = pd.Series(trail)
 
-data_911.to_csv('~/Documents/seattle_data/911_w_features.csv')
+data_911.to_csv('~/Documents/seattle_data/911_w_features.csv', index=False)

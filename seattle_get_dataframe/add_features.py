@@ -1,68 +1,68 @@
 from haversine import haversine
 import pandas as pd
 
-data_911 = pd.read_csv('~/Documents/seattle_data/911_group_subset.csv')
-parks = pd.read_csv('~/Documents/seattle_data/parks.csv')
+data_911 = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/auto_thefts.csv')
+parks = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/parks.csv')
 
 ## seattle police precincts
-spd_precints = pd.read_csv('~/Documents/seattle_data/SPD_precinct.csv')
+spd_precints = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/SPD_precinct.csv')
 
 precincts = []
 for row in spd_precints.iterrows():
   precincts = precincts + row[1]['the_geom'].replace('(', '').replace(')', '').replace('MULTIPOLYGON ', '').split(', ')
 
 ## public bathrooms
-bathrooms = pd.read_csv('~/Documents/seattle_data/bathrooms.csv')
+bathrooms = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/bathrooms.csv')
 bathrooms = [x.replace('POINT (', '').replace(')', '') for x in bathrooms['the_geom']]
 
 ## parking
-parking = pd.read_csv('~/Documents/seattle_data/parking.csv')
+parking = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/parking.csv')
 parking = parking['SHAPE']
 
 ## traffic cams
-traffic_cams = pd.read_csv('~/Documents/seattle_data/traffic_cameras.csv')
+traffic_cams = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/traffic_cameras.csv')
 traffic_cams = traffic_cams['LOCATION']
 
 ## private schools location
-private_schools = pd.read_csv('~/Documents/seattle_data/private_schools.csv')
+private_schools = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/private_schools.csv')
 private_schools = private_schools['Shape']
 
 ## public schools location
-public_schools = pd.read_csv('~/Documents/seattle_data/public_schools.csv')
+public_schools = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/public_schools.csv')
 public_schools = public_schools['Shape']
 
 ## baseball field locations
-baseball_fields = pd.read_csv('~/Documents/seattle_data/baseball_fields.csv')
+baseball_fields = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/baseball_fields.csv')
 baseball_fields = [x.replace('POINT (', '').replace(')', '') for x in baseball_fields['the_geom']]
 
 ## basketball court locations
-basketball_courts = pd.read_csv('~/Documents/seattle_data/basketball_courts.csv')
+basketball_courts = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/basketball_courts.csv')
 bball = []
 for row in basketball_courts.iterrows():
   bball.append(row[1]['the_geom'].replace('(', '').replace(')', '').replace('MULTIPOLYGON ', '').split(', ')[0])
 
 ## fishing piers locations
-fishing_piers = pd.read_csv('~/Documents/seattle_data/fishing_piers.csv')
+fishing_piers = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/fishing_piers.csv')
 fishing_piers = [(x, y) for x, y in zip(fishing_piers['LONGITUDE'], fishing_piers['LATITUDE'])]
 
 ## golf courses
-golf_courses = pd.read_csv('~/Documents/seattle_data/golf_course.csv')
+golf_courses = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/golf_course.csv')
 golf_courses = [x.replace('POINT (', '').replace(')', '') for x in golf_courses['the_geom']]
 
 ## movie theaters
-movie_theaters = pd.read_csv('~/Documents/seattle_data/movie_theaters.csv')
+movie_theaters = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/movie_theaters.csv')
 movie_theaters = [x.replace('(', '').replace(')', '') for x in movie_theaters['Shape']]
 
 ## skate parks
-skate_parks = pd.read_csv('~/Documents/seattle_data/skate_park.csv')
+skate_parks = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/skate_park.csv')
 skate_parks = [(x, y) for x, y in zip(skate_parks['LONGITUDE'], skate_parks['LATITUDE'])]
 
 ## tracks
-tracks = pd.read_csv('~/Documents/seattle_data/tracks.csv')
+tracks = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/tracks.csv')
 tracks = [x.replace('POINT (', '').replace(')', '') for x in tracks['the_geom']]
 
 ## trails
-trails = pd.read_csv('~/Documents/seattle_data/trails.csv')
+trails = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/trails.csv')
 trails = [x.replace('LINESTRING (', '').replace(')', '').split(', ') for x in trails['the_geom']]
 
 park = []
@@ -151,4 +151,4 @@ data_911['skate_parks'] = pd.Series(skate)
 data_911['track_and_fields'] = pd.Series(track)
 data_911['trails'] = pd.Series(trail)
 
-data_911.to_csv('~/Documents/seattle_data/911_w_features.csv', index=False)
+data_911.to_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/auto_theft_w_features.csv', index=False)

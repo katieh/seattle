@@ -5,7 +5,7 @@ import numpy as np
 
 ## modified from https://plot.ly/python/choropleth-maps/
 
-data = pd.read_csv('~/Documents/seattle_data/911_group_subset.csv')
+data = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/911_w_parks.csv')
 groups = np.unique(data['Event Clearance Group'])
 
 crimes = []
@@ -26,10 +26,7 @@ layout = go.Layout(
     geo = dict(
             scope='usa',
             projection=dict( type='albers usa' ),
-            showland = True,
-            landcolor = 'rgb(217, 217, 217)',
-            subunitcolor="rgb(255, 255, 255)",
-            countrycolor="rgb(255, 255, 255)",
+            showland = False,
             lonaxis = dict( range= [ -122.45, -122.25 ] ),
             lataxis = dict( range= [ 47.47, 47.75 ] ),
         ),
@@ -41,4 +38,4 @@ layout = go.Layout(
 print(layout.help('geo'))
 
 fig = go.Figure(layout=layout, data=crimes)
-url = py.plot(fig, validate=False, filename='West Africa Ebola cases 2014')
+url = py.plot(fig, validate=False, filename='Crime Map')

@@ -3,7 +3,7 @@ import numpy as np
 import plotly.plotly as py
 import plotly.graph_objs as go
 
-data = pd.read_csv('~/Documents/seattle_data/911.csv')
+data = pd.read_csv('/Users/KatieHanss/Documents/seattle_data_too_big/911.csv')
 
 groups = np.unique(data['Event Clearance Group'])
 

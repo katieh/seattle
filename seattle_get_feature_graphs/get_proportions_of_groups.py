@@ -7,17 +7,11 @@ labels = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_da
 
 groups = ['ASSAULTS', 'BURGLARY', 'MENTAL HEALTH',
 'MOTOR VEHICLE COLLISION INVESTIGATION', 'NARCOTICS COMPLAINTS',
-'SHOPLIFTING', 'THREATS, HARASSMENT',
-'TRESPASS']
-
-'''groups = ['ASSAULTS', 'BURGLARY', 'DISTURBANCES', 'MENTAL HEALTH',
-'MOTOR VEHICLE COLLISION INVESTIGATION', 'NARCOTICS COMPLAINTS',
-'SHOPLIFTING', 'THREATS, HARASSMENT', 'TRAFFIC RELATED CALLS',
-'TRESPASS']'''
+'SHOPLIFTING', 'THREATS, HARASSMENT', 'TRESPASS', 'AUTO THEFTS']
 
 size = []
-for label in np.unique(labels['0']):
-  size.append(len(labels[labels['0'] == label]))
+for label in np.unique(labels['2']):
+  size.append(len(labels[labels['2'] == label]))
 
 
 fig = {

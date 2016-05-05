@@ -3,12 +3,11 @@ import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
 
-data_911 = pd.read_csv('~/Documents/seattle_data/911_with_hour_month.csv')
+data_911 = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/911_w_parks.csv')
 
-groups = ['ASSAULTS', 'BURGLARY', 'DISTURBANCES', 'MENTAL HEALTH',
+groups = ['ASSAULTS', 'BURGLARY', 'MENTAL HEALTH',
 'MOTOR VEHICLE COLLISION INVESTIGATION', 'NARCOTICS COMPLAINTS',
-'SHOPLIFTING', 'THREATS, HARASSMENT', 'TRAFFIC RELATED CALLS',
-'TRESPASS']
+'SHOPLIFTING', 'THREATS, HARASSMENT', 'TRESPASS', 'AUTO THEFTS']
 
 weekdays = range(7)
 

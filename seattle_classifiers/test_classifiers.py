@@ -30,7 +30,7 @@ for train_index, test_index in skf:
   Y_train, Y_test = labels.iloc[train_index], labels.iloc[test_index]
 
   ## train svc
-  print 'fitting scv'
+  print 'fitting random forest'
   rf = RandomForestClassifier()
   rf.fit(X_train, Y_train)
 
@@ -40,6 +40,7 @@ for train_index, test_index in skf:
   average_error += (1./k) * error
 
 print "Random Forest Classifier: %4.2f%s" % (100 * average_error,'%')
+print rf.feature_importances_
 
 '''## ------------------------------------------------------------------ ##
 ##                       Cross Validation for SVC (poly)              ##

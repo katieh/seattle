@@ -17,9 +17,12 @@ labels = pd.DataFrame([groups.index(x) for x in features['Event Clearance Group'
 ## drop non-features
 features.drop('Event Clearance Group', axis = 1, inplace=True)
 features.drop('Event Clearance Date', axis=1, inplace=True)
-features.drop('day', axis = 1, inplace=True)
-features.drop('weekday', axis = 1, inplace=True)
-features.drop('month', axis = 1, inplace=True)
+if 'day' in features.keys():
+  features.drop('day', axis = 1, inplace=True)
+if 'weekday' in features.keys():
+  features.drop('weekday', axis = 1, inplace=True)
+if 'month' in features.keys():
+  features.drop('month', axis = 1, inplace=True)
 
 
 ## half the data we use, the other half we save for later

@@ -67,9 +67,9 @@ print rf.feature_importances_
 
 ## modified from:
 ## http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
-'''std = np.std([tree.feature_importances_ for tree in rf.estimators_],
+std = np.std([tree.feature_importances_ for tree in rf.estimators_],
              axis=0)
-graph_feature_importance(rf.feature_importances_, feature_vectors.columns.values, std)'''
+graph_feature_importance(rf.feature_importances_, feature_vectors.columns.values, std)
 
 '''
 ## ------------------------------------------------------------------ ##
@@ -84,15 +84,16 @@ for train_index, test_index in skf:
 
   ## train svc
   print 'fitting svc'
-  svc = SVC(kernel='linear')
+  print len(X_train)
+  svc = SVC(kernel='rbf', C=2)
   svc.fit(X_train, Y_train)
 
   ## predict
-  predictions = svc.prediction(X_test)
+  predictions = svc.predict(X_test)
   error = zero_one_loss(predictions, Y_test)
   average_error += (1./k) * error
 
-print "SVC w Polynomail Kernel Average Error: %4.2f%s" % (100 * averageError,'%')
+print "SVC Average Error: %4.2f%s" % (100 * average_error,'%')
 
 ## ------------------------------------------------------------------ ##
 ##                       Cross Validation for SVC (rbf)               ##

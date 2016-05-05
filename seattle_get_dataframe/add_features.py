@@ -123,7 +123,7 @@ for i in range(data_911.shape[0]):
   golf.append(sum([haversine((float(x.split(' ')[0]), float(x.split(' ')[1])), crime_loc, miles=True) <= dist
   for x in golf_courses]))
 
-  movie.append(sum([haversine((float(x.split(', ')[0]), float(x.split(', ')[1])), crime_loc, miles=True) <= dist
+  movie.append(sum([haversine((float(x.split(', ')[1]), float(x.split(', ')[0])), crime_loc, miles=True) <= dist
   for x in movie_theaters]))
 
   skate.append(sum([haversine((float(x[0]), float(x[1])), crime_loc, miles=True) <= dist

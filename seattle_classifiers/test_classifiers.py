@@ -47,7 +47,6 @@ skf = StratifiedKFold(labels, n_folds=k)
 ##                             Random Forrest                         ##
 ## ------------------------------------------------------------------ ##
 
-## run SVC w linear kernel
 average_error = 0
 for train_index, test_index in skf:
   X_train, X_test = feature_vectors.iloc[train_index, :], feature_vectors.iloc[test_index, :]
@@ -55,7 +54,7 @@ for train_index, test_index in skf:
 
   ## train svc
   print 'fitting random forest'
-  rf = RandomForestClassifier()
+  rf = RandomForestClassifier(max_depth=15, n_estimators = 80) #n_estimators = 30)
   rf.fit(X_train, Y_train)
 
   ## predict
@@ -68,22 +67,24 @@ print rf.feature_importances_
 
 ## modified from:
 ## http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html
-std = np.std([tree.feature_importances_ for tree in rf.estimators_],
+'''std = np.std([tree.feature_importances_ for tree in rf.estimators_],
              axis=0)
-graph_feature_importance(rf.feature_importances_, feature_vectors.columns.values, std)
+graph_feature_importance(rf.feature_importances_, feature_vectors.columns.values, std)'''
 
-'''## ------------------------------------------------------------------ ##
+'''
+## ------------------------------------------------------------------ ##
 ##                       Cross Validation for SVC (poly)              ##
 ## ------------------------------------------------------------------ ##
 
 ## run SVC w polynomial kernel
 average_error = 0
 for train_index, test_index in skf:
-  X_train, X_test = feature_vectors.iloc[:, train_index], feature_vectors.iloc[:, test_index]
+  X_train, X_test = feature_vectors.iloc[train_index, :], feature_vectors.iloc[test_index, :]
   Y_train, Y_test = labels.iloc[train_index], labels.iloc[test_index]
 
   ## train svc
-  svc = SVC(kernel='poly')
+  print 'fitting svc'
+  svc = SVC(kernel='linear')
   svc.fit(X_train, Y_train)
 
   ## predict

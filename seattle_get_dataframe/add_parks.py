@@ -4,7 +4,7 @@ import pandas as pd
 data_911 = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/911_subset.csv')
 data_parks = pd.read_csv('/Users/KatieHanss/Documents/424_seattle/seattle/seattle_data/parks.csv')
 
-dist = 2
+dist = 16
 
 park = []
 for i in range(data_911.shape[0]):

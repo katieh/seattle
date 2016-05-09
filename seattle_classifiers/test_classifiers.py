@@ -54,7 +54,7 @@ for train_index, test_index in skf:
 
   ## train svc
   print 'fitting random forest'
-  rf = RandomForestClassifier(max_depth=15, n_estimators = 80) #n_estimators = 30)
+  rf = RandomForestClassifier() #max_depth=15, n_estimators = 80) #n_estimators = 30)
   rf.fit(X_train, Y_train)
 
   ## predict
